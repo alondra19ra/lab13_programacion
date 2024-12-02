@@ -14,10 +14,18 @@ public class Enemy : MonoBehaviour
             GameObject explosionInstance = Instantiate(explosionPrefab, transform.position, transform.rotation);
 
             Destroy(explosionInstance, explosionDuration);
+
             Destroy(gameObject);
+
             Destroy(collision.gameObject);
+
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.AddScore(2); // Sumar 2 puntos
+            }
         }
     }
 }
+
 
 
